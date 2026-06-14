@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { LogoIcon } from './LogoIcon';
 import styles from './Footer.module.css';
 
 export function Footer() {
@@ -9,7 +10,7 @@ export function Footer() {
         <div className={styles.inner}>
           <div className={styles.brand}>
             <Link to="/" className={styles.logo}>
-              <span className={styles.logoIcon}>🍯</span>
+              <LogoIcon className={styles.logoIcon} />
               <span className={styles.logoText}>Пасека</span>
             </Link>
             <p className={styles.description}>

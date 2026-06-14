@@ -12,6 +12,7 @@ import styles from './ProductCard.module.css';
 export function ProductCard({ product, index = 0 }) {
   const [selectedWeight, setSelectedWeight] = useState(WEIGHTS[1]);
   const [added, setAdded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
   const { addToCart } = useCart();
   const { isFavorite, toggleFavorite } = useFavorites();
 
@@ -25,7 +26,7 @@ export function ProductCard({ product, index = 0 }) {
   };
 
   return (
-    <article className={styles.card}>
+    <article className={styles.card} style={{ animationDelay: `${index * 0.05}s` }}>
       {product.badge && (
         <div className={styles.badge}>
           <Badge variant={product.badge}>{getBadgeLabel(product.badge)}</Badge>
@@ -41,8 +42,15 @@ export function ProductCard({ product, index = 0 }) {
       </button>
 
       <Link to={`/product/${product.id}`} className={styles.imageLink}>
-        <div className={styles.image} style={{ backgroundColor: `${product.color}20` }}>
-          <span>{product.image}</span>
+        <div className={styles.imageBox}>
+          {!imageLoaded && <div className={styles.imageSkeleton} />}
+          <img
+            src={product.image}
+            alt={product.name}
+            className={`${styles.image} ${imageLoaded ? styles.imageVisible : ''}`}
+            loading="lazy"
+            onLoad={() => setImageLoaded(true)}
+          />
         </div>
       </Link>
 

@@ -1,25 +1,32 @@
 /* ===== CSS Variables ===== */
 :root {
-  --honey: #E8A020;
-  --honey-dark: #C47D0A;
-  --honey-light: #FFF3D6;
-  --amber: #F5C842;
-  --brown: #5C3A1E;
-  --brown-dark: #3D2008;
-  --text: #2D1F0E;
-  --text-muted: #7A6652;
-  --bg: #FFFBF0;
-  --bg-warm: #FFF7E6;
+  --cream: #FDFBF7;
+  --cream-warm: #F9F4EC;
+  --honey: #D4A03A;
+  --honey-dark: #B08020;
+  --honey-light: #F8EFD8;
+  --honey-soft: #FFF7E8;
+  --amber: #E8B84A;
+  --brown: #4A3B2A;
+  --brown-dark: #2E2216;
+  --text: #1F1B18;
+  --text-muted: #6B5F52;
+  --text-light: #9B8F80;
+  --bg: var(--cream);
+  --bg-warm: var(--cream-warm);
   --white: #FFFFFF;
-  --border: #F0E0C0;
+  --border: #EDE6DA;
   --success: #4CAF50;
   --error: #E53935;
   --radius-sm: 8px;
   --radius: 14px;
-  --radius-lg: 20px;
-  --shadow: 0 4px 24px rgba(92, 58, 30, 0.1);
-  --shadow-lg: 0 12px 40px rgba(92, 58, 30, 0.15);
-  --transition: all 0.25s ease;
+  --radius-lg: 22px;
+  --radius-xl: 30px;
+  --shadow: 0 4px 24px rgba(74, 59, 42, 0.08);
+  --shadow-md: 0 8px 32px rgba(74, 59, 42, 0.1);
+  --shadow-lg: 0 20px 50px rgba(74, 59, 42, 0.12);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
 }
 
 /* ===== Reset & Base ===== */
@@ -36,15 +43,17 @@ html {
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text);
-  background: var(--white);
-  line-height: 1.6;
+  background: var(--bg);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', Georgia, serif;
-  line-height: 1.25;
+  line-height: 1.2;
   color: var(--brown);
+  font-weight: 600;
 }
 
 a {
@@ -71,34 +80,37 @@ input, select, textarea {
 
 /* ===== Typography ===== */
 .page-title {
-  font-size: clamp(32px, 5vw, 48px);
-  margin-bottom: 16px;
+  font-size: clamp(36px, 5.5vw, 56px);
+  margin-bottom: 18px;
+  letter-spacing: -0.02em;
 }
 
 .section-title {
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(30px, 4vw, 44px);
   color: var(--brown);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
 }
 
 .section-subtitle {
   font-size: 17px;
   color: var(--text-muted);
-  max-width: 560px;
+  max-width: 580px;
   margin: 0 auto;
+  line-height: 1.7;
 }
 
 .section-tag {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.06em;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--honey-dark);
   background: var(--honey-light);
-  padding: 6px 16px;
+  padding: 7px 18px;
   border-radius: 50px;
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 /* ===== Layout ===== */
@@ -109,12 +121,12 @@ input, select, textarea {
 }
 
 .section {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 .section-head {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 64px;
 }
 
 /* ===== Utility ===== */
@@ -128,6 +140,18 @@ input, select, textarea {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
+}
+
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* ===== Scrollbar ===== */
@@ -148,17 +172,32 @@ input, select, textarea {
   background: var(--honey-dark);
 }
 
+/* ===== Honeycomb pattern background ===== */
+.honeycomb-bg {
+  position: relative;
+}
+
+.honeycomb-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23D4A03A' stroke-width='0.5' opacity='0.08'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .container {
-    padding: 0 16px;
+    padding: 0 18px;
   }
 
   .section {
-    padding: 60px 0;
+    padding: 72px 0;
   }
 
   .section-head {
-    margin-bottom: 40px;
+    margin-bottom: 44px;
   }
 }

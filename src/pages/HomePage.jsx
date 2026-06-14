@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Truck, Shield, Leaf, Award } from 'lucide-react';
+import { ArrowRight, Shield, Leaf, Truck, Award } from 'lucide-react';
 import { Hero } from '../components/Hero';
 import { ProductGrid } from '../components/ProductGrid';
 import { BenefitCard } from '../components/BenefitCard';
 import { ReviewCard } from '../components/ReviewCard';
 import { Button } from '../components/ui/Button';
-import { products, benefits, reviews } from '../data/products';
+import { products, benefits, reviews, galleryImages, aboutImages, videoUrl } from '../data/products';
 import styles from './HomePage.module.css';
 
 export function HomePage() {
@@ -66,10 +66,18 @@ export function HomePage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className={styles.aboutImage}>
-                <span>🐝</span>
+              <div className={styles.aboutImageWrapper}>
+                <img
+                  src={aboutImages.beekeeper}
+                  alt="Пчеловод с рамкой свежих сот"
+                  className={styles.aboutImage}
+                  loading="lazy"
+                />
               </div>
-              <div className={styles.aboutDecoration}>🍯</div>
+              <div className={styles.aboutExperience}>
+                <span className={styles.aboutExperienceNum}>15+</span>
+                <span className={styles.aboutExperienceText}>лет опыта</span>
+              </div>
             </motion.div>
             <motion.div
               className={styles.aboutContent}
@@ -98,6 +106,65 @@ export function HomePage() {
                 <Button>Узнать больше о пасеке</Button>
               </Link>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className={`section ${styles.videoSection}`}>
+        <div className="container">
+          <div className="section-head">
+            <span className="section-tag">Видео с пасеки</span>
+            <h2 className="section-title">С пасеки до баночки</h2>
+            <p className="section-subtitle">
+              Посмотрите, как пчёлы создают натуральный мёд и как мы заботимся о каждой стадии производства
+            </p>
+          </div>
+          <motion.div
+            className={styles.videoWrapper}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className={styles.videoContainer}>
+              <video
+                src={videoUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="/honey-shop/images/gallery/process-1.jpg"
+                title="Пчёлы на сотах"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section className={`section ${styles.gallerySection}`}>
+        <div className="container">
+          <div className="section-head">
+            <span className="section-tag">Галерея</span>
+            <h2 className="section-title">Как рождается настоящий мёд</h2>
+            <p className="section-subtitle">
+              Кадры с нашей пасеки: ульи, сбор урожая, откачка и разлив по баночкам
+            </p>
+          </div>
+          <div className={styles.galleryGrid}>
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={image.id}
+                className={styles.galleryItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <img src={image.src} alt={image.alt} loading="eager" />
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

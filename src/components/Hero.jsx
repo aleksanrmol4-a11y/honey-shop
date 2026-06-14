@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from './ui/Button';
+import { heroImage } from '../data/products';
 import styles from './Hero.module.css';
 
 export function Hero() {
   return (
-    <section className={styles.hero}>
+    <section className={`${styles.hero} honeycomb-bg`}>
       <div className="container">
         <div className={styles.inner}>
           <motion.div
@@ -48,17 +49,18 @@ export function Hero() {
 
           <motion.div
             className={styles.visual}
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 0.9, delay: 0.2, ease: 'easeOut' }}
           >
-            <div className={styles.circle}>
-              <div className={styles.honeycomb}>
-                {Array.from({ length: 9 }).map((_, i) => (
-                  <div key={i} className={styles.hex} />
-                ))}
-              </div>
-              <div className={styles.jar}>🍯</div>
+            <div className={styles.imageWrapper}>
+              <img
+                src={heroImage}
+                alt="Свежие соты с капающим мёдом"
+                className={styles.image}
+                loading="eager"
+              />
+              <div className={styles.imageGlow} />
             </div>
           </motion.div>
         </div>

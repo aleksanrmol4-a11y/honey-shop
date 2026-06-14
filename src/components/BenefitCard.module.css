@@ -2,21 +2,34 @@
   text-align: center;
   padding: 40px 28px;
   border-radius: var(--radius-lg);
-  background: var(--bg);
+  background: var(--white);
   border: 1.5px solid var(--border);
   transition: var(--transition);
 }
 
 .card:hover {
   border-color: var(--honey);
-  box-shadow: var(--shadow);
-  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
 }
 
 .icon {
-  font-size: 48px;
-  display: block;
-  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--honey-soft);
+  color: var(--honey-dark);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+
+.card:hover .icon {
+  background: var(--honey);
+  color: var(--white);
+  transform: scale(1.05);
 }
 
 .title {

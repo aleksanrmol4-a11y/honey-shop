@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Trash2, Package, ArrowRight, ShoppingCart } from 'lucide-react';
+import { Trash2, Package, ArrowRight, ShoppingCart, ShoppingBasket } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import { products, WEIGHTS } from '../data/products';
@@ -27,7 +27,7 @@ export function CartPage() {
   if (items.length === 0) {
     return (
       <div className={`container ${styles.empty}`}>
-        <div className={styles.emptyIcon}>🍯</div>
+        <div className={styles.emptyIcon}><ShoppingBasket size={56} strokeWidth={1.5} /></div>
         <h1 className="section-title">Корзина пуста</h1>
         <p className={styles.emptyText}>Добавьте вкусный мёд из нашего каталога</p>
         <Link to="/catalog">
@@ -61,7 +61,7 @@ export function CartPage() {
                     className={styles.itemImage}
                     style={{ backgroundColor: `${item.product.color}20` }}
                   >
-                    <span>{item.product.image}</span>
+                    <img src={item.product.image} alt={item.product.name} />
                   </Link>
 
                   <div className={styles.itemInfo}>

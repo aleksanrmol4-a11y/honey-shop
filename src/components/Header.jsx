@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Search, Heart, ShoppingCart, Menu, X, User } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { useFavorites } from '../context/FavoritesContext';
+import { LogoIcon } from './LogoIcon';
 import styles from './Header.module.css';
 
 const navLinks = [
@@ -40,7 +41,7 @@ export function Header() {
       <div className="container">
         <div className={styles.inner}>
           <Link to="/" className={styles.logo}>
-            <span className={styles.logoIcon}>🍯</span>
+            <LogoIcon className={styles.logoIcon} />
             <span className={styles.logoText}>Пасека</span>
           </Link>
 
@@ -99,7 +100,7 @@ export function Header() {
           <div className={styles.mobileMenu} onClick={(e) => e.stopPropagation()}>
             <div className={styles.mobileHeader}>
               <Link to="/" className={styles.logo} onClick={() => setIsMobileMenuOpen(false)}>
-                <span className={styles.logoIcon}>🍯</span>
+                <LogoIcon className={styles.logoIcon} />
                 <span className={styles.logoText}>Пасека</span>
               </Link>
               <button

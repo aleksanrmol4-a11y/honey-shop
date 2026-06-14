@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Check, Truck, CreditCard, User, MapPin, ChevronRight } from 'lucide-react';
+import { Check, Truck, CreditCard, User, MapPin, ChevronRight, ShoppingBasket } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../context/CartContext';
 import { useUser } from '../context/UserContext';
@@ -48,7 +48,7 @@ export function CheckoutPage() {
   if (items.length === 0) {
     return (
       <div className={`container ${styles.empty}`}>
-        <div className={styles.emptyIcon}>🍯</div>
+        <div className={styles.emptyIcon}><ShoppingBasket size={56} strokeWidth={1.5} /></div>
         <h1 className="section-title">Корзина пуста</h1>
         <p className={styles.emptyText}>Добавьте товары, чтобы оформить заказ</p>
         <Button size="lg" onClick={() => navigate('/catalog')}>Перейти в каталог</Button>
@@ -355,7 +355,7 @@ export function CheckoutPage() {
               <div className={styles.sidebarItems}>
                 {cartItems.map((item) => (
                   <div key={`${item.productId}-${item.weightValue}`} className={styles.sidebarItem}>
-                    <span className={styles.sidebarItemEmoji}>{item.product.image}</span>
+                    <img className={styles.sidebarItemImage} src={item.product.image} alt={item.product.name} />
                     <div className={styles.sidebarItemInfo}>
                       <span className={styles.sidebarItemName}>{item.product.name}</span>
                       <span className={styles.sidebarItemMeta}>

@@ -4,11 +4,11 @@
 
 .catalogLink {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 44px;
 }
 
 .benefits {
-  background: var(--bg);
+  background: var(--bg-warm);
 }
 
 .benefitsGrid {
@@ -25,7 +25,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 72px;
+  gap: 80px;
 }
 
 .aboutVisual {
@@ -34,51 +34,81 @@
   justify-content: center;
 }
 
-.aboutImage {
+.aboutImageWrapper {
+  position: relative;
   width: 100%;
-  max-width: 480px;
-  aspect-ratio: 1;
-  border-radius: 30px;
-  background: linear-gradient(145deg, var(--amber), var(--honey));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 140px;
-  box-shadow: 0 24px 60px rgba(232, 160, 32, 0.25);
+  max-width: 520px;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
-.aboutDecoration {
+.aboutImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.aboutImageWrapper:hover .aboutImage {
+  transform: scale(1.04);
+}
+
+.aboutExperience {
   position: absolute;
-  top: -20px;
-  right: 30px;
-  font-size: 64px;
-  animation: float 4s ease-in-out infinite;
+  bottom: -24px;
+  right: 20px;
+  background: var(--honey);
+  color: var(--white);
+  padding: 22px 28px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 130px;
+}
+
+.aboutExperienceNum {
+  font-family: 'Playfair Display', serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.aboutExperienceText {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 4px;
 }
 
 .aboutContent {
-  max-width: 520px;
+  max-width: 540px;
 }
 
 .aboutText {
   color: var(--text-muted);
-  margin-bottom: 16px;
-  line-height: 1.7;
+  margin-bottom: 18px;
+  line-height: 1.75;
+  font-size: 16px;
 }
 
 .aboutList {
   list-style: none;
-  margin: 28px 0 36px;
+  margin: 30px 0 38px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
 .aboutList li {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   font-size: 15px;
   color: var(--text);
+  font-weight: 500;
 }
 
 .aboutList svg {
@@ -86,8 +116,87 @@
   flex-shrink: 0;
 }
 
+.videoSection {
+  background: var(--bg-warm);
+}
+
+.videoWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--brown-dark);
+  background-image: url('/honey-shop/images/gallery/process-1.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.videoContainer video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+.gallerySection {
+  background: var(--white);
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+}
+
+.galleryItem:nth-child(1) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.galleryItem:hover img {
+  transform: scale(1.08);
+}
+
+.galleryItem::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(31, 27, 24, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.galleryItem:hover::after {
+  opacity: 1;
+}
+
 .reviews {
-  background: var(--bg);
+  background: var(--bg-warm);
 }
 
 .reviewsGrid {
@@ -97,37 +206,46 @@
 }
 
 .cta {
-  padding: 100px 0;
+  position: relative;
+  padding: 110px 0;
   background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%);
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%23D4A03A' stroke-width='0.5' opacity='0.06'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+  pointer-events: none;
 }
 
 .ctaInner {
+  position: relative;
+  z-index: 1;
   text-align: center;
   max-width: 640px;
   margin: 0 auto;
 }
 
 .ctaTitle {
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(30px, 4vw, 44px);
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .ctaText {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.7);
-  margin-bottom: 32px;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 36px;
+  line-height: 1.7;
 }
 
 @media (max-width: 900px) {
   .aboutInner {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 56px;
     text-align: center;
   }
 
@@ -139,8 +257,19 @@
     align-items: center;
   }
 
-  .aboutDecoration {
-    display: none;
+  .aboutExperience {
+    right: 10px;
+    bottom: -18px;
+  }
+
+  .galleryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .galleryItem:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -150,6 +279,11 @@
   }
 
   .cta {
-    padding: 72px 0;
+    padding: 80px 0;
+  }
+
+  .videoPlay {
+    width: 60px;
+    height: 60px;
   }
 }

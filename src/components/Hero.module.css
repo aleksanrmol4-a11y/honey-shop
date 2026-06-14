@@ -1,14 +1,29 @@
 .hero {
-  background: linear-gradient(135deg, #FFFBF0 0%, #FFF3D6 60%, #FDECC0 100%);
-  padding: 80px 0 100px;
+  position: relative;
+  background: linear-gradient(135deg, #FDFBF7 0%, #F9F4EC 50%, #F5EEDF 100%);
+  padding: 90px 0 110px;
   overflow: hidden;
 }
 
+.hero::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(248, 239, 216, 0.6) 0%, rgba(253, 251, 247, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 60px;
+  gap: 70px;
 }
 
 .content {
@@ -16,28 +31,30 @@
 }
 
 .title {
-  font-size: clamp(36px, 5vw, 58px);
+  font-size: clamp(38px, 5.5vw, 60px);
   color: var(--brown);
-  margin-bottom: 20px;
+  margin-bottom: 22px;
+  letter-spacing: -0.02em;
 }
 
 .description {
   font-size: 18px;
   color: var(--text-muted);
-  margin-bottom: 36px;
-  line-height: 1.7;
+  margin-bottom: 38px;
+  line-height: 1.75;
+  max-width: 520px;
 }
 
 .actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 48px;
+  margin-bottom: 52px;
 }
 
 .stats {
   display: flex;
-  gap: 48px;
+  gap: 56px;
 }
 
 .stat {
@@ -47,68 +64,57 @@
 
 .statNum {
   font-family: 'Playfair Display', serif;
-  font-size: 34px;
+  font-size: 38px;
   font-weight: 700;
-  color: var(--honey);
+  color: var(--honey-dark);
   line-height: 1;
 }
 
 .statLabel {
   font-size: 14px;
   color: var(--text-muted);
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .visual {
   display: flex;
   justify-content: center;
-}
-
-.circle {
   position: relative;
-  width: 420px;
-  height: 420px;
-  background: radial-gradient(circle, #FDECC0 0%, #F5C842 60%, #E8A020 100%);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 24px 70px rgba(232, 160, 32, 0.3);
 }
 
-.jar {
-  font-size: 130px;
-  filter: drop-shadow(0 8px 20px rgba(92, 58, 30, 0.3));
-  animation: float 3s ease-in-out infinite;
+.imageWrapper {
   position: relative;
-  z-index: 2;
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
-.honeycomb {
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s ease;
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.05);
+}
+
+.imageGlow {
   position: absolute;
   inset: 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  padding: 50px;
-  opacity: 0.18;
-}
-
-.hex {
-  background: var(--brown);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  aspect-ratio: 1;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-16px); }
+  background: radial-gradient(circle at 30% 30%, rgba(212, 160, 56, 0.15) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 @media (max-width: 900px) {
   .inner {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 48px;
   }
 
   .content {
@@ -116,7 +122,7 @@
   }
 
   .description {
-    max-width: 520px;
+    max-width: 560px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -127,23 +133,28 @@
 
   .stats {
     justify-content: center;
+    gap: 40px;
   }
 
   .visual {
-    display: none;
+    order: -1;
+  }
+
+  .imageWrapper {
+    max-width: 480px;
   }
 }
 
 @media (max-width: 480px) {
   .hero {
-    padding: 60px 0 80px;
+    padding: 64px 0 80px;
   }
 
   .stats {
-    gap: 24px;
+    gap: 28px;
   }
 
   .statNum {
-    font-size: 28px;
+    font-size: 30px;
   }
 }

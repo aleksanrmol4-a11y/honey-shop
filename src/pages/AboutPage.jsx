@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Award, Heart, Leaf, Shield, Users } from 'lucide-react';
-import { benefits } from '../data/products';
+import { benefits, aboutImages, galleryImages, videoUrl } from '../data/products';
 import { BenefitCard } from '../components/BenefitCard';
 import styles from './AboutPage.module.css';
 
@@ -28,10 +28,29 @@ export function AboutPage() {
       <section className="section">
         <div className="container">
           <div className={styles.story}>
-            <div className={styles.storyVisual}>
-              <div className={styles.storyImage}>🐝</div>
-            </div>
-            <div className={styles.storyContent}>
+            <motion.div
+              className={styles.storyVisual}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className={styles.storyImageWrapper}>
+                <img
+                  src={aboutImages.apiary}
+                  alt="Ульи на пасеке в зелёном саду"
+                  className={styles.storyImage}
+                  loading="lazy"
+                />
+              </div>
+            </motion.div>
+            <motion.div
+              className={styles.storyContent}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
               <h2 className="section-title">Наша история</h2>
               <p>
                 Пасека основана в 2010 году дедом Александром, который передавал свои знания
@@ -48,7 +67,7 @@ export function AboutPage() {
                 созревание. Каждая банка — это живой продукт с сохранёнными полезными
                 свойствами.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -68,6 +87,88 @@ export function AboutPage() {
       </section>
 
       <section className="section">
+        <div className="container">
+          <div className={styles.process}>
+            <motion.div
+              className={styles.processContent}
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="section-tag">Процесс</span>
+              <h2 className="section-title">От сбора нектара до вашего стола</h2>
+              <p className={styles.processText}>
+                Каждая банка мёда проходит путь от цветущих лугов до вашей кухни. Мы
+                контролируем каждый этап: сбор рамок, откачку, фильтрацию и бережную
+                упаковку без нагрева.
+              </p>
+              <div className={styles.processSteps}>
+                <div className={styles.processStep}>
+                  <span className={styles.processStepNum}>01</span>
+                  <span className={styles.processStepTitle}>Сбор рамок</span>
+                </div>
+                <div className={styles.processStep}>
+                  <span className={styles.processStepNum}>02</span>
+                  <span className={styles.processStepTitle}>Откачка в центрифуге</span>
+                </div>
+                <div className={styles.processStep}>
+                  <span className={styles.processStepNum}>03</span>
+                  <span className={styles.processStepTitle}>Фильтрация и созревание</span>
+                </div>
+                <div className={styles.processStep}>
+                  <span className={styles.processStepNum}>04</span>
+                  <span className={styles.processStepTitle}>Разлив по баночкам</span>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              className={styles.processVisual}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className={styles.processVideoWrapper}>
+                <video
+                  src={videoUrl}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  poster="/honey-shop/images/gallery/process-1.jpg"
+                  title="Процесс производства мёда"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section className={`section ${styles.gallerySection}`}>
+        <div className="container">
+          <div className="section-head">
+            <span className="section-tag">Галерея</span>
+            <h2 className="section-title">Жизнь пасеки</h2>
+          </div>
+          <div className={styles.galleryGrid}>
+            {galleryImages.map((image, index) => (
+              <motion.div
+                key={image.id}
+                className={styles.galleryItem}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <img src={image.src} alt={image.alt} loading="eager" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={`section ${styles.factsSection}`}>
         <div className="container">
           <div className={styles.facts}>
             <div className={styles.fact}>

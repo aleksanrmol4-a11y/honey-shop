@@ -21,6 +21,7 @@ export function ProductPage() {
   const [selectedWeight, setSelectedWeight] = useState(WEIGHTS[1]);
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   if (!product) {
     return (
@@ -65,8 +66,14 @@ export function ProductPage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className={styles.image} style={{ backgroundColor: `${product.color}25` }}>
-              <span>{product.image}</span>
+            <div className={styles.imageBox}>
+              {!imageLoaded && <div className={styles.imageSkeleton} />}
+              <img
+                src={product.image}
+                alt={product.name}
+                className={`${styles.image} ${imageLoaded ? styles.imageVisible : ''}`}
+                onLoad={() => setImageLoaded(true)}
+              />
             </div>
           </motion.div>
 
@@ -182,7 +189,9 @@ export function ProductPage() {
             {product.reviews.map((review) => (
               <div key={review.id} className={styles.review}>
                 <div className={styles.reviewHeader}>
-                  <span className={styles.reviewAvatar}>{review.avatar || '👤'}</span>
+                  <span className={styles.reviewAvatar}>
+                    {review.avatar || review.author.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()}
+                  </span>
                   <div>
                     <h4>{review.author}</h4>
                     <div className={styles.reviewStars}>

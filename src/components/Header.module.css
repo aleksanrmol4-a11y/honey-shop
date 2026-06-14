@@ -28,7 +28,10 @@
 }
 
 .logoIcon {
-  font-size: 28px;
+  width: 32px;
+  height: 32px;
+  color: var(--honey-dark);
+  flex-shrink: 0;
 }
 
 .logoText {

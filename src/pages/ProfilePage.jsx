@@ -48,7 +48,7 @@ export function ProfilePage() {
         <div className={styles.header}>
           <div className={styles.userInfo}>
             <div className={styles.avatar}>
-              <span>{user.name ? user.name[0].toUpperCase() : '👤'}</span>
+              {user.name ? <span>{user.name[0].toUpperCase()}</span> : <User size={28} />}
             </div>
             <div>
               <h1 className={styles.name}>{user.name || 'Гость'}</h1>

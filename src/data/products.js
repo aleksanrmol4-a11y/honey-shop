@@ -26,7 +26,7 @@ export const products = [
     reviewsCount: 127,
     badge: 'hit',
     inStock: true,
-    image: '🌸',
+    image: '/honey-shop/images/products/flower.jpg',
     color: '#F5C842',
     description: 'Светлый, нежный мёд с лёгким цветочным ароматом. Идеально подходит для детей и тех, кто пробует натуральный мёд впервые.',
     taste: 'Мягкий, сладкий, с тонкими цветочными нотками',
@@ -48,7 +48,7 @@ export const products = [
     reviewsCount: 203,
     badge: 'bestseller',
     inStock: true,
-    image: '🌿',
+    image: '/honey-shop/images/products/herbal.jpg',
     color: '#D4A017',
     description: 'Насыщенный аромат луговых трав и янтарный цвет делают этот мёд фаворитом среди постоянных покупателей.',
     taste: 'Насыщенный, терпкий, с медовой сладостью',
@@ -71,7 +71,7 @@ export const products = [
     reviewsCount: 89,
     badge: 'sale',
     inStock: true,
-    image: '🌲',
+    image: '/honey-shop/images/products/buckwheat.jpg',
     color: '#8B4513',
     description: 'Тёмный мёд с характерным острым вкусом. Богат железом и антиоксидантами, помогает при простуде и анемии.',
     taste: 'Острый, насыщенный, терпкий',
@@ -93,7 +93,7 @@ export const products = [
     reviewsCount: 156,
     badge: 'new',
     inStock: true,
-    image: '🍋',
+    image: '/honey-shop/images/products/linden.jpg',
     color: '#F0E68C',
     description: 'Лёгкий, прозрачный мёд с тонким ароматом липы. Классическое средство от простуды с горячим чаем.',
     taste: 'Мягкий, с лёгкой мятной свежестью',
@@ -115,7 +115,7 @@ export const products = [
     reviewsCount: 74,
     badge: null,
     inStock: true,
-    image: '🌻',
+    image: '/honey-shop/images/products/sunflower.jpg',
     color: '#FFD700',
     description: 'Быстро кристаллизуется, нежно-жёлтого цвета. Мягкий вкус, отлично сочетается с маслом на тосте.',
     taste: 'Мягкий, сливочный, с лёгкой кислинкой',
@@ -137,7 +137,7 @@ export const products = [
     reviewsCount: 112,
     badge: 'premium',
     inStock: true,
-    image: '🍃',
+    image: '/honey-shop/images/products/acacia.jpg',
     color: '#FFF8DC',
     description: 'Самый светлый и жидкий сорт. Долго не кристаллизуется, обладает деликатным ароматом белой акации.',
     taste: 'Очень мягкий, изысканный, нежный',
@@ -173,29 +173,45 @@ export const getBadgeLabel = (badge) => {
 export const benefits = [
   {
     id: 1,
-    icon: '🐝',
+    icon: 'hexagon',
     title: 'Своя пасека',
     text: 'Собираем мёд на собственной пасеке в экологически чистом районе, вдали от дорог и промышленных зон.',
   },
   {
     id: 2,
-    icon: '🌿',
+    icon: 'leaf',
     title: '100% натурально',
     text: 'Без подогрева, добавок и консервантов. Только то, что приготовили пчёлы.',
   },
   {
     id: 3,
-    icon: '📋',
+    icon: 'clipboard',
     title: 'Лабораторный контроль',
     text: 'Каждая партия проходит проверку качества. Документы предоставляем по запросу.',
   },
   {
     id: 4,
-    icon: '🚚',
+    icon: 'truck',
     title: 'Быстрая доставка',
     text: 'Доставляем по городу в день заказа. По России — от 1 до 5 дней транспортными компаниями.',
   },
 ];
+
+export const galleryImages = [
+  { id: 1, src: '/honey-shop/images/gallery/process-1.jpg', alt: 'Пчеловод осматривает рамку с сотами' },
+  { id: 2, src: '/honey-shop/images/gallery/process-2.jpg', alt: 'Откачка мёда в центрифуге' },
+  { id: 3, src: '/honey-shop/images/gallery/process-3.jpg', alt: 'Нарезка свежих сот' },
+  { id: 4, src: '/honey-shop/images/gallery/process-4.jpg', alt: 'Готовая продукция на пасеке' },
+];
+
+export const aboutImages = {
+  beekeeper: '/honey-shop/images/about/beekeeper.jpg',
+  apiary: '/honey-shop/images/about/apiary.jpg',
+};
+
+export const heroImage = '/honey-shop/images/hero/hero-main.jpg';
+
+export const videoUrl = '/honey-shop/videos/bees-honeycomb.mp4';
 
 export const reviews = [
   {
@@ -203,20 +219,17 @@ export const reviews = [
     author: 'Анна М.',
     rating: 5,
     text: 'Наконец-то нашла настоящий натуральный мёд! Вкус невероятный, доставка быстрая.',
-    avatar: '👩',
   },
   {
     id: 2,
     author: 'Сергей П.',
     rating: 5,
     text: 'Заказываю уже полгода. Качество всегда на высоте, разнотравье — просто бомба!',
-    avatar: '👨',
   },
   {
     id: 3,
     author: 'Марина К.',
     rating: 5,
     text: 'Оформила подарочный набор коллегам. Все были в восторге от вкуса и упаковки.',
-    avatar: '👩‍💼',
   },
 ];
