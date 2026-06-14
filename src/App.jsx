@@ -19,7 +19,7 @@ import styles from './App.module.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/honey-shop">
       <CartProvider>
         <FavoritesProvider>
           <UserProvider>
