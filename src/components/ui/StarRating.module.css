@@ -1,0 +1,31 @@
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+  gap: 2px;
+}
+
+.filled {
+  fill: var(--amber);
+  color: var(--amber);
+}
+
+.empty {
+  fill: transparent;
+  color: var(--border);
+}
+
+.value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.count {
+  font-weight: 400;
+  color: var(--text-muted);
+}

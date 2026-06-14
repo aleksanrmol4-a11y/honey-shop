@@ -1,0 +1,155 @@
+.page {
+  padding: 40px 0 100px;
+  min-height: calc(100vh - 72px);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.card {
+  padding: 24px;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: var(--honey);
+  transform: translateY(-4px);
+}
+
+.card svg {
+  color: var(--honey);
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 18px;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.card a,
+.card > span {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.formBlock {
+  padding: 32px;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.formTitle {
+  font-size: 24px;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.formSubtitle {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brown);
+}
+
+.field input,
+.field textarea {
+  padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: var(--transition);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--honey);
+  background: var(--white);
+}
+
+.submitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 50px;
+  background: var(--honey);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.submitButton:hover {
+  background: var(--honey-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .info {
+    grid-template-columns: 1fr;
+  }
+
+  .formBlock {
+    padding: 24px 20px;
+  }
+}

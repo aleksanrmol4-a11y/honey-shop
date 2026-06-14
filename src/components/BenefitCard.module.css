@@ -1,0 +1,32 @@
+.card {
+  text-align: center;
+  padding: 40px 28px;
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  transition: var(--transition);
+}
+
+.card:hover {
+  border-color: var(--honey);
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+
+.icon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: 20px;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.text {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}

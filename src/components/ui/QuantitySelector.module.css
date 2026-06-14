@@ -1,0 +1,53 @@
+.selector {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--border);
+  border-radius: 50px;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brown);
+  transition: var(--transition);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--honey-light);
+  color: var(--honey-dark);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.value {
+  min-width: 32px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--text);
+  user-select: none;
+}
+
+.md .button {
+  width: 36px;
+  height: 36px;
+}
+
+.md .value {
+  font-size: 15px;
+}
+
+.sm .button {
+  width: 28px;
+  height: 28px;
+}
+
+.sm .value {
+  font-size: 13px;
+  min-width: 24px;
+}

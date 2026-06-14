@@ -1,0 +1,344 @@
+.page {
+  padding: 40px 0 100px;
+  min-height: calc(100vh - 72px);
+}
+
+.empty {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.emptyIcon {
+  font-size: 80px;
+  margin-bottom: 24px;
+}
+
+.emptyText {
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.stepIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+}
+
+.stepActive .stepIcon {
+  background: var(--honey);
+  border-color: var(--honey);
+  color: var(--white);
+}
+
+.stepCompleted .stepIcon {
+  background: var(--success);
+  border-color: var(--success);
+  color: var(--white);
+}
+
+.stepArrow {
+  color: var(--border);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.form {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+}
+
+.stepTitle {
+  font-size: 24px;
+  color: var(--brown);
+  margin-bottom: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brown);
+}
+
+.field input,
+.field textarea {
+  padding: 13px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg);
+  color: var(--text);
+  outline: none;
+  transition: var(--transition);
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--honey);
+  background: var(--white);
+}
+
+.inputError {
+  border-color: var(--error) !important;
+}
+
+.error {
+  font-size: 13px;
+  color: var(--error);
+}
+
+.deliveryMethods,
+.paymentMethods {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+.deliveryMethod,
+.paymentMethod {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.deliveryMethod:hover,
+.paymentMethod:hover {
+  border-color: var(--honey);
+}
+
+.deliveryMethodActive,
+.paymentMethodActive {
+  border-color: var(--honey);
+  background: var(--honey-light);
+}
+
+.deliveryMethod input,
+.paymentMethod input {
+  margin-top: 3px;
+  accent-color: var(--honey);
+}
+
+.deliveryMethodLabel {
+  display: block;
+  font-weight: 600;
+  color: var(--brown);
+}
+
+.deliveryMethodPrice {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.paymentMethod span {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.orderSummary {
+  padding: 20px;
+  background: var(--bg);
+  border-radius: var(--radius);
+}
+
+.orderSummary h3 {
+  font-size: 18px;
+  color: var(--brown);
+  margin-bottom: 16px;
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.summaryDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+.summaryTotal {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.formActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.sidebarBlock {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1.5px solid var(--border);
+}
+
+.sidebarTitle {
+  font-size: 18px;
+  color: var(--brown);
+  margin-bottom: 20px;
+}
+
+.sidebarItems {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sidebarItemEmoji {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.sidebarItemInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sidebarItemName {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.sidebarItemMeta {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.sidebarItemPrice {
+  font-weight: 600;
+  color: var(--brown);
+  font-size: 14px;
+}
+
+.sidebarDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 12px 0;
+}
+
+.sidebarRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.sidebarTotal {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  padding-top: 12px;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 600px) {
+  .form {
+    padding: 20px;
+  }
+
+  .steps {
+    gap: 8px;
+  }
+
+  .stepLabel {
+    display: none;
+  }
+}

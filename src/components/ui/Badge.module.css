@@ -1,0 +1,41 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.default {
+  background: var(--honey-light);
+  color: var(--honey-dark);
+}
+
+.hit {
+  background: var(--honey);
+  color: var(--white);
+}
+
+.bestseller {
+  background: var(--brown);
+  color: var(--amber);
+}
+
+.new {
+  background: var(--success);
+  color: var(--white);
+}
+
+.sale {
+  background: var(--error);
+  color: var(--white);
+}
+
+.premium {
+  background: linear-gradient(135deg, var(--amber), var(--honey));
+  color: var(--brown-dark);
+}

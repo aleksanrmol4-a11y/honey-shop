@@ -1,0 +1,155 @@
+.popular {
+  background: var(--white);
+}
+
+.catalogLink {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.benefits {
+  background: var(--bg);
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.about {
+  background: var(--white);
+}
+
+.aboutInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 72px;
+}
+
+.aboutVisual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.aboutImage {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1;
+  border-radius: 30px;
+  background: linear-gradient(145deg, var(--amber), var(--honey));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 140px;
+  box-shadow: 0 24px 60px rgba(232, 160, 32, 0.25);
+}
+
+.aboutDecoration {
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  font-size: 64px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.aboutContent {
+  max-width: 520px;
+}
+
+.aboutText {
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.aboutList {
+  list-style: none;
+  margin: 28px 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aboutList li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.aboutList svg {
+  color: var(--honey);
+  flex-shrink: 0;
+}
+
+.reviews {
+  background: var(--bg);
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.cta {
+  padding: 100px 0;
+  background: linear-gradient(135deg, var(--brown) 0%, var(--brown-dark) 100%);
+}
+
+.ctaInner {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.ctaText {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 32px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@media (max-width: 900px) {
+  .aboutInner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .aboutContent {
+    max-width: 100%;
+  }
+
+  .aboutList {
+    align-items: center;
+  }
+
+  .aboutDecoration {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .reviewsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta {
+    padding: 72px 0;
+  }
+}

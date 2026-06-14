@@ -1,0 +1,25 @@
+.page {
+  padding: 120px 0;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+}
+
+.content {
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.icon {
+  font-size: 80px;
+  display: block;
+  margin-bottom: 24px;
+}
+
+.text {
+  color: var(--text-muted);
+  margin-bottom: 28px;
+  font-size: 16px;
+  line-height: 1.7;
+}

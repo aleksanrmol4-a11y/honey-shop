@@ -1,0 +1,28 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.empty {
+  text-align: center;
+  padding: 80px 20px;
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+}
+
+.emptyIcon {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.empty h3 {
+  font-size: 24px;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.empty p {
+  color: var(--text-muted);
+}
